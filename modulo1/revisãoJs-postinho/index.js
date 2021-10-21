@@ -43,45 +43,106 @@
 
 // // Exercício 3------------------------------------------------------------------------------------
 
-const cadastro = () => {
-    const usuarios = []
+// const cadastro = () => {
+//     const usuarios = []
 
-    const nomeUsuario = prompt("Digite seu nome: ")
-    const anoDeNascimento = prompt("Digite seu ano de nascimento: ")
-    const senhaDoUsuario = prompt("Digite uma senha com mais de 6 digitos: ")
-    const nacionalidade = prompt("Qual a sua nacionalidade ???")
-    const idade = 2021 - anoDeNascimento
-    if(idade >= 18 && senhaDoUsuario.length >= 6 && nacionalidade === "brasileira"){
+//     const nomeUsuario = prompt("Digite seu nome: ")
+//     const anoDeNascimento = prompt("Digite seu ano de nascimento: ")
+//     const senhaDoUsuario = prompt("Digite uma senha com mais de 6 digitos: ")
+//     const nacionalidade = prompt("Qual a sua nacionalidade ???")
+//     const idade = 2021 - anoDeNascimento
+//     if(idade >= 18 && senhaDoUsuario.length >= 6 && nacionalidade === "brasileira"){
         
-        alert(`Parabens, o usuario ${nomeUsuario} foi adicionado com sucesso !!!`)
-        usuarios.push({nomeUsuario,anoDeNascimento,senhaDoUsuario,nacionalidade})
-        console.log("Parabens, seu cadastro foi realizado com sucesso !!!")
-        console.log(usuarios)}
+//         alert(`Parabens, o usuario ${nomeUsuario} foi adicionado com sucesso !!!`)
+//         usuarios.push({nomeUsuario,anoDeNascimento,senhaDoUsuario,nacionalidade})
+//         console.log("Parabens, seu cadastro foi realizado com sucesso !!!")
+//         console.log(usuarios)}
     
-    else{
-    alert (`Seu cadastro não foi aceito`)}
-}
-cadastro()
+//     else{
+//     alert (`Seu cadastro não foi aceito`)}
+// }
+// cadastro()
 
 // // Exercício 4-----------------------------------------------------------------------------------------------
 
+// Escreva uma função que peça uma senha para o usuário e
+//  verifique se está é a mesma senha cadastrada por ele. 
+//   Dentro da função defina uma senha válida  Ex: const senha=”labenu”
+
+// - Caso a senha seja válida imprima no console a mensagem (Usuário Logado)
+// - Caso a senha seja inválida imprima no console (Senha Inválida)
+
+
 // const login = () => {
 //     const login = "labenu"
-//     //  Sua lógica aqui
+//     const nomeUser = "Gabriel J"
+//     const nomeN = prompt("Qual seu nome : ")
+//     const senhaN = prompt("Digite sua senha : ")
+     
+//     if(nomeUser === nomeN && login === senhaN ){
+//         alert(`Usuario Logado`)
+//         return `Usuario Logado`
+//     }else{alert(`Senha Inválida`)
+//         return`Senha Inválida`}
 
 // }
 
-// console.log(login());
+// console.log(login())
+
+
+
 
 // // Exercício 5----------------------------------------------------------------------------------------------------
 
-// const primeiraDose = () => {
+const primeiraDose = () => {
 
-//     //  Sua lógica aqui
+    let tempo = 0
+    let data = new Date()
 
+    
 
-// }
-// console.log(primeiraDose())
+    const nomeUsr = prompt ("Digite seu nome: ")
+    const vacinaTomada = prompt ("Qual vacina você tomou ???").toLowerCase()
+    
+    
+    if(vacinaTomada === "coronavac"){
+        tempo = 28
+    
+    }else if(vacinaTomada === "astrazenica"){
+        tempo = 90
+    
+    }else if(vacinaTomada === "pfizer"){
+        tempo = 90
+    }
+    else {alert(`Vacina não Encontrada`)}
+    
+    
+    const milissegundos1dia = 86400000
+
+    const hoje = data.getTime()
+
+    const dataAtualizada = new Date(hoje + (tempo * milissegundos1dia))
+    
+    
+    const dataFormatada = dataAtualizada.toLocaleDateString("pt-br")
+    
+    
+    
+        if(vacinaTomada === "coronavac"){
+            alert(`Olá ${nomeUsr}! A próxima dose da ${vacinaTomada} é daqui a ${tempo} dias. Compareça no posto na data ${dataFormatada}.`)
+        
+        }else if(vacinaTomada === "astrazenica"){
+            alert(`Olá ${nomeUsr}! A próxima dose da ${vacinaTomada} é daqui a ${tempo} dias. Compareça no posto na data ${dataFormatada}.`)
+    
+        }else if(vacinaTomada === "pfizer"){
+            alert(`Olá ${nomeUsr}! A próxima dose da ${vacinaTomada} é daqui a ${tempo} dias. Compareça no posto na data ${dataFormatada}.`)
+    
+        }else{alert(`USUARIO NÃO ENCONTRADO`)}
+    
+    
+
+}
+console.log(primeiraDose())
 
 
 // // LOOP+CONDICIONAL
