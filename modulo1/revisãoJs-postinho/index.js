@@ -149,32 +149,51 @@ console.log(primeiraDose())
 
 // // Exercício 6 -------------------------------------------------------------------------------------
 
-// const segundaDose = (nomeDoUsuario) => {
-//     const usuarios = [
-//         { nome: "Artur", imunizacao: "incompleta" },
-//         { nome: "Barbara", imunizacao: "incompleta" },
-//         { nome: "Carlos", imunizacao: "incompleta" }
-//     ]
-
-//     //  Sua lógica aqui
+const segundaDose = (nomeDoUsuario) => {
+    const usuarios = [
+        { nome: "Artur", imunizacao: "incompleta" },
+        { nome: "Barbara", imunizacao: "incompleta" },
+        { nome: "Carlos", imunizacao: "incompleta" }
+    ]
 
 
-// }
-// console.log(segundaDose("Barbara"));
 
+    const listaFiltrada = usuarios.filter((usuario) => {
+        if (usuario.nome === nomeDoUsuario) {
+             usuario.imunizacao = "Vacinada"
+        }
+
+        return usuario
+    })
+
+    return listaFiltrada
+}
+
+    console.log(segundaDose("Barbara"))
 // // Exercício 7 --------------------------------------------------------------------------------------
 
-// const avisoAosAtrasados = () => {
-//     const usuarios = [
-//         { nome: "Artur", imunizacao: "incompleta" },
-//         { nome: "Barbara", imunizacao: "completa" },
-//         { nome: "Carlos", imunizacao: "incompleta" }
-//     ]
+const avisoAosAtrasados = () => {
+    const usuarios = [
+        { nome: "Artur", imunizacao: "incompleta" },
+        { nome: "Barbara", imunizacao: "completa" },
+        { nome: "Carlos", imunizacao: "incompleta" }
+    ]
 
-//     //  Sua lógica aqui
+    const listaFiltrada = usuarios.filter((usuario) => {
+        if (usuario.imunizacao === "incompleta") {
+            console.log(`Olá ${usuario.nome}! Sua imunização está ${usuario.imunizacao}, por favor volte ao postinho para tomar a segunda dose.`)
+        }
 
-// }
-// console.log(avisoAosAtrasados());
+       
+    })
+
+    return listaFiltrada
+
+
+
+}
+console.log(avisoAosAtrasados());
+
 
 
 // // DESAFIO------------------------------------------------------------------------------------------
