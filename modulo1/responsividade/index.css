@@ -1,0 +1,140 @@
+@media screen and (min-device-width : 1200px) {
+    /* computadores */
+    
+*{
+padding: 0;
+margin: 0;
+}
+
+header{
+background-color: orange;
+display: flex;
+height: 50px;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+}
+
+.divBusca{
+display: flex;
+}
+
+#buscador{
+display: flex;
+height: 20px;
+}
+
+#lupinha{
+display: flex;
+height: 20px;
+width: 20px;
+
+}
+.galeriaDeVideos{
+display: grid;
+column-gap: 5px;
+row-gap: 20px;
+grid-template-columns: repeat(4, 2fr);
+margin-left: 15px ;
+}
+
+p{
+display: flex;
+justify-content: space-evenly
+}
+video{
+display: grid;
+width: 300px;
+height: 200px;
+}
+
+.video-ind{
+align-items: center;
+grid: 20px;
+border: 1px solid black
+
+}
+
+footer{
+display: flex;
+position: absolute;
+bottom: 0 auto;
+background-color: black;
+align-items: center;
+color: white;
+height: 60px;
+justify-content: space-evenly
+
+}
+}
+@media screen and (min-device-width : 320px) {
+    *{
+        padding: 0;
+        margin: 0;
+        }
+        
+        header{
+        background-color: orange;
+        display: flex;
+        height: 50px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        }
+        
+        .divBusca{
+        display: flex;
+        }
+        
+        #buscador{
+        display: flex;
+        height: 20px;
+        }
+        
+        #lupinha{
+        display: flex;
+        height: 20px;
+        width: 20px;
+        
+        }
+
+        /* bory{
+        align-items: center; */
+        
+        
+        .galeriaDeVideos{
+        display: grid;
+        /* align-items: center; */
+        /* grid-template-columns: repeat(4, 2fr); */
+        margin-left: 10px ;
+        margin-right: 10px;
+        }
+        
+        video{
+        display: grid;
+        width: 300px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+        }
+        
+        .video-ind{
+        align-items: center;
+        grid: 20px;
+        border: 1px solid black
+        
+        }
+        
+        footer{
+        display: flex;
+        position: absolute;
+        bottom: 0 auto;
+        background-color: black;
+        align-items: center;
+        color: white;
+        height: 60px;
+        width: 100%;
+        justify-content: space-evenly
+                }  
+    }
+                                                
