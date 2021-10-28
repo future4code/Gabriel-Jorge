@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: auto;
+    height: auto;
+
+}
+
+.cabecalho {
+    display: grid;
+    grid-template-columns: 1fr 10fr ;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    justify-content: center;
+    background-color: mediumvioletred ;
+}
