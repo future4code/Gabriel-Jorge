@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* background-color: rgb(83, 115, 126) */
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texi {
+    background-color: rgb(15, 0, 34);
+    color: rgb(255, 255, 255);
+}
+
+header {
+    background-color: rgb(15, 0, 34);
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px; */
+        border: 5px solid cornflowerblue;
+}
+
+.Logo {
+    height: 150px;
+    padding-top: 70px;
+    border-radius: 10px;
+}
+
+.space {
+    background-color: cornflowerblue;
+    width: 100%;
+    height: 5px;
+}
+
+.ex2 {
+    padding-top: 0px;
+}
+
+.ex1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    border: 5px solid cornflowerblue;
+    ;
+    border-radius: 45px;
+}
+
+.TP {
+    background-color: rgb(15, 0, 34);
+    ;
+    color: white;
+    text-align: center;
+    border-radius: 45px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: #0F0022;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.footer p {
+    color: #fff;
+    margin: 0;
+    border-radius: 45px;
+}
+.bor{
+border: 2px solid cornflowerblue;
+
+}
