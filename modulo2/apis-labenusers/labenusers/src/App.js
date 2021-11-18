@@ -1,65 +1,41 @@
 import React from "react";
 import axios from "axios";
+import TelaCadastro from "./components/TelaCadastro";
+import TelaListaUsuario from "./components/TelaListaUsuario";
 
 export default class App extends React.Component {
-  state = {
-    usuario: [],
-    inputValueName: "",
-    inputValueEmail: ""
+  state= {
+    telaAtual: "cadastro"
   }
-
-  componentDidMount = () => {
-    this.postCreateUser();
-  };
-
-  handleInputChangeNome = (event) => {
-    this.setState({ inputValueName: event.target.value })
-  }
-
-  handleInputChangeEmail = (event) => {
-    this.setState({ inputValueEmail: event.target.value })
-  }
-
-  postCreateUser = () => {
-    const body = {
-      name: this.state.inputValueName,
-      email: this.state.inputValueEmail
+    
+  escolheTela = () => {
+    switch(this.state.telaAtual){
+      case "cadastro":
+        return <TelaCadastro irParaLista={this.irParaLista}/>
+      case "lista":
+        return <TelaListaUsuario irParaCadastro={this.irParaCadastro}/> 
+      default: 
+        return <div>Erro !!! Pagina Não Encontrada</div>
     }
-    axios
-      .post(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        body,
-        {
-          headers: {
-            Authorization: "thayna-saad-carver",
-          }
-        }
-      )
-      .then((response) => {
-        console.log(response.data)
-        //this.setState({usuario: response.data})
-      })
-      .catch((error) => {
-        console.log(error.response.data)
-      })
+  } 
+
+  irParaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
   }
+
+  irParaLista = () => {
+    this.setState({telaAtual: "lista"})
+  }
+
+
 
   render() {
     return (
-     <div>
-       <button>Lista de Usuários</button>
-       <h1>Cadastro de Usuarios</h1>
-       <input 
-       placeholder = {"nome"}
-       value = {this.state.inputValueName}
-       onChange = {this.handleInputChangeNome}/>
-       <input
-       placeholder = {"email"}
-       value = {this.state.inputValueEmail}
-       onChange = {this.state.handleInputChangeEmail}/>
-       <button onClick ={this.postCreateUser}>Adicionar</button>
 
-    </div>
-    )
+      <div>
+        {this.escolheTela()}
+      </div>
+    );
   }
 }
+
