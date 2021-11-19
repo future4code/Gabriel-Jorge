@@ -1,17 +1,10 @@
-import React from "react";
+import React from 'react'
 
-
-export default class playlist extends React.Component {
-    render() {
-
-        return (
-            <div>
-                
-            </div>
-        )
-    }
-
-
-
-
+export default function Playlist(props) {
+    return (
+        <div>
+            <p>{props.nome}</p>
+            <img src={props.imagem}/>
+        </div>
+    )
 }
