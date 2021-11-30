@@ -11,10 +11,10 @@ import iconeComentario from '../../img/comment_icon.svg'
 const Post = (props) => {
 
   const [curtido, setCurtido] = useState(false)
-  const [numeroCurtidas, setNumeroCurtidas] = useState = (0)
-  const [comentando, setComentado] = useState = (false)
-  const [numeroComentarios, setNumeroComentarios] = useState = (0)
-  const [comentarios, setComentarios] = useState = ([])
+  const [numeroCurtidas, setNumeroCurtidas] = useState(0)
+  const [comentando, setComentado] = useState(false)
+  const [numeroComentarios, setNumeroComentarios] = useState(0)
+  const [comentarios, setComentarios] = useState([])
 
 
   const onClickCurtida = () => {
@@ -27,27 +27,20 @@ const Post = (props) => {
       setNumeroCurtidas(numeroCurtidas + 1)
     }
 
-  
-
-
   };
 
 const onClickComentario = () => {
 
-  setComentado({
-    comentando: !comentando
-  })
+  setComentado(!comentando)
 };
 
-const enviarComentario = (comentario) => {
+ const enviarComentario = (comentario) => {
 
   const listaDeComentarios = [...comentarios, comentario]
 
-  setNumeroComentarios({
-    comentarios: listaDeComentarios,
-    comentando: false,
-    numeroComentarios: numeroComentarios + 1
-  })
+  setNumeroComentarios(listaDeComentarios.length)
+  setComentarios(listaDeComentarios)
+  setComentado (!comentando)
 }
 
 const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
