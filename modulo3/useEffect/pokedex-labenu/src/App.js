@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import PokeCard from "./components/Pokecard";
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
         }
       </select>
 
-
+        {pokemonName && <PokeCard pokeName={pokemonName}/>}
 
 
     </div>
