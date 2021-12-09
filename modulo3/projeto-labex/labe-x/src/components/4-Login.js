@@ -1,19 +1,53 @@
+import axios from "axios"
 import React from "react"
 import { useHistory } from "react-router-dom"
 import styled from "styled-components"
+import { Geral } from "../style/styleGeral"
+import { useState } from 'react'
 
-const Button = styled.button`
-    color: black;
-    font-size: 1em;
-    margin: 1em;
-    padding: 2px solid palevioletred;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    `
+
+
+const DivO = styled.div`
+padding-top: 10px;
+
+
+`
 
 
 
 const PaginaLogin = () => {
+
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
+
+
+    const mudarEmail = (event) => {
+        setEmail(event.target.value)
+    }
+    const mudarSenha = (event) => {
+        setSenha(event.target.value)
+    }
+
+    const autorizationName = "gabriel-jorge-carver"
+
+    const alunoName = "gabriel"
+
+
+    const submeterLogin = () => {
+        console.log(email,senha)
+        const bory = {
+            email:email,
+            senha:senha
+        }
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${alunoName}/login`,bory)
+        .then((res) => {
+            console.log("deu certo!!!" ,res.data)
+
+        })
+        .catch((err) => {
+            console.log("deu bosta", err.response)
+        })
+    }
 
     const history = useHistory()
     const voltar = () => {
@@ -22,11 +56,28 @@ const PaginaLogin = () => {
 
 
     return(    
-        <div>    
-            <h2> Pagina Login ok </h2>    
-            <Button onClick={voltar}>Voltar</Button>
-            <Button>Logar</Button>
-        </div>    
+        <Geral>   
+                
+            <h1>Login</h1>                 
+                <input 
+                placeholder={"     Email"}
+                type="email"
+                value={email}
+                onChange={mudarEmail}
+                />
+                
+                <input placeholder={"     Senha"}
+                type="senha"
+                value={senha}
+                onChange={mudarSenha}
+                />
+
+
+                <DivO>
+                <button onClick={voltar}>Voltar</button>
+                <button onClick={submeterLogin}>Logar</button>
+            </DivO>
+        </Geral>    
     
     )  
     

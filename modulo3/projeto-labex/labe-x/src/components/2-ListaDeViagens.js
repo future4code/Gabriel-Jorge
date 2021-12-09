@@ -1,16 +1,18 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
 import styled from "styled-components"
+import { Geral } from "../style/styleGeral"
+import axios from "axios"
+import { useState } from 'react'
 
+// const [viagen, setViagem] = useState({})
 
-const Button = styled.button`
-    color: black;
-    font-size: 1em;
-    margin: 1em;
-    padding: 2px solid palevioletred;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    `
+// const [userId, setUserId] = useState("")
+// const [userName, setUserName] = useState("")
+// const [description, setDescription] = useState("")
+// const [userPlanet, setUserPlanet] = useState("")
+// const [durationInDays, setDurationInDays] = useState("")
+// const [date, setDate] = useState("")
 
 
 
@@ -26,13 +28,60 @@ const ListaDeViagens = () => {
     }
 
 
+
+
+
+    //-----------Dados da Api---------------------------------------------------------------------------------------------------------
+
+const autorizationName = "gabriel-jorge-carver"
+
+const alunoName = "gabriel"
+
+
+//-----------------------API 1 - (Get Trips) - Essa requisição retorna todas as viagens.-----------------------------------------
+
+const getTrips = () => {
+  const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${alunoName}/trips`
+  axios.get(url, 
+
+    ).then((res)=>{
+      console.log(res.data.trips)
+      console.log(res.data.trips.length)
+
+      const ListaDeViagens = res.data.trips.map((item) => {
+        return  <div key={item.id}> 
+                    setUserName={item.nome}
+                    Descrição:{item.description}
+                    Planeta:{item.planet}
+                    Duração:{item.durationInDays}
+                    Data:{item.date}
+                </div>
+        
+    
+    })
+        return ListaDeViagens
+
+    }).catch((err) => {
+      console.log(err)
+      
+    })
+}
+
+getTrips()
+
+ 
+
+
     return(    
-        <div>  
-            <iframe src="https://giphy.com/embed/ZeQEuIJlfbhao" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/guy-bicycle-suite-ZeQEuIJlfbhao">via GIPHY</a></p>            
-            <Button onClick={voltar}>Voltar</Button>
-            <Button onClick={irParaPaginaInscricao}>Inscrever-se</Button>
-            <h2> ListaDeViagens ok </h2>    
-        </div>    
+        <Geral>  
+                        
+           <div>
+            <button onClick={voltar}>Voltar</button>
+            <button onClick={irParaPaginaInscricao}>Inscrever-se</button>
+            </div>
+            <h1> Lista de Viagens</h1>    
+        
+        </Geral>    
     
     )  
     

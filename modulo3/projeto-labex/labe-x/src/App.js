@@ -1,3 +1,4 @@
+import "./App.css"
 import Homepage from './components/1-Homepage';
 import ListaDeViagens from './components/2-ListaDeViagens';
 import PaginaInscricaoViagem from './components/3-PaginaIncricaoViagem';
@@ -9,6 +10,8 @@ import CriarViagem from './components/6-CriarViajem';
 import PaginaErro from './components/8-PaginaDeErro';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
+
 
 
 
@@ -50,12 +53,42 @@ const App = () => {
 //   }
 
 
+//-----------Dados da Api---------------------------------------------------------------------------------------------------------
+
+const autorizationName = "gabriel-jorge-carver"
+
+const alunoName = "gabriel"
 
 
+//-----------------------API 1 - (Get Trips) - Essa requisição retorna todas as viagens.-----------------------------------------
+
+const getTrips = () => {
+  const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${alunoName}/trips`
+  axios.get(url, {Authorization: `${autorizationName}`
+
+    }).then((res)=>{
+      console.log(res.data.trips)
+
+    }).catch((err) => {
+      console.log(err)
+      
+    })
+}
+
+//---------------API 2 (Get Trip Detail) - Essa requisição retorna os detalhes e os candidatos de uma viagem específica.----------
 
 
+// const getTrips = () => {
+//   const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${alunoName}/trip/:id`
+//   axios.get(url, {Authorization: `${autorizationName}`
 
+//     }).then((res)=>{
+//       console.log(res.data.trips)
 
+//     }).catch((err) => {
+//       console.log(err)
+      
+//     })
 
 
   return (
