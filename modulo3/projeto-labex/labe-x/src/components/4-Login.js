@@ -30,16 +30,22 @@ const PaginaLogin = () => {
 
     const autorizationName = "gabriel-jorge-carver"
 
-    const alunoName = "gabriel"
+    const alunoName = "siciliano"
 
 
     const submeterLogin = () => {
         console.log(email,senha)
-        const bory = {
+        const body = {
             email:email,
-            senha:senha
+            password:senha
         }
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${alunoName}/login`,bory)
+        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${alunoName}/login`,body,{
+        headers: {
+            auth: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im93T2g5ZWo2bW50akZqNUNRMVB4IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE2MzkxODMwODN9.-L3bZx-pp7_CVWkTuxw3ot9bzqxQWxjrdqL9C49ZiT0`
+        }
+
+        })
+        
         .then((res) => {
             console.log("deu certo!!!" ,res.data)
 

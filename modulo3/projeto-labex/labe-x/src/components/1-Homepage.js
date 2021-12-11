@@ -58,36 +58,36 @@ border-radius: 300px;
 
 const Divo7 = styled.div`
 background-color: rgba(12, 1, 132, 0.568);
-padding-right:5px ;
-padding-left:5px;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-right:10px ;
+padding-left:10px;
+padding-top: 10px;
+padding-bottom: 10px;
 border-radius: 300px;
 `
 
 
 const Divo8 = styled.div`
 background-color: rgba(12, 1, 132, 0.568);
-padding-right:5px ;
-padding-left:5px;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-right:20px ;
+padding-left:20px;
+padding-top: 20px;
+padding-bottom: 20px;
 border-radius: 300px;
 `
 
 
 const Divo9 = styled.div`
 background-color: rgba(12, 1, 132, 0.568);
-padding-right:5px ;
-padding-left:5px;
-padding-top: 5px;
-padding-bottom: 5px;
+padding-right:30px ;
+padding-left:30px;
+padding-top: 30px;
+padding-bottom: 30px;
 border-radius: 300px;   
 `
 
 
 const Divo10 = styled.div`
-padding-top: 300px;
+padding-top: 200px;
 padding-bottom: 30px;
 `
 

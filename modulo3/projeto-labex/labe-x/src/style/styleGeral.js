@@ -17,8 +17,12 @@ border-radius: 20px;
 border:5px solid rgb(106, 90, 205);
 }
 
+h1{
+color:white;
+}
+ 
 input{
-background-color: black;
+background-color: burlywood;
 margin: 10px;
 width: 350px;
 height: 50px;
