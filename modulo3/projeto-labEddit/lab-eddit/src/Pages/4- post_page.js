@@ -1,5 +1,6 @@
 import react from "react"
 import styled from "styled-components"
+import useProtectedPage from "../hooks/useProtectedPage"
 
 const DivO = styled.div`
 
@@ -9,6 +10,7 @@ color: white;
 
 const PostPage = () => {
 
+    useProtectedPage()
 
     return(
         <DivO>

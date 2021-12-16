@@ -1,10 +1,17 @@
 import react from "react"
 import styled from "styled-components"
 import { Button, TextField } from "@material-ui/core"
-import { findByLabelText } from "@testing-library/react"
 import { goToRegisterPage } from '../Components/coordinator'
+import { goToFeedPage } from "../Components/coordinator"
 import useForm from "../hooks/useForm"
 import { useHistory } from "react-router-dom"
+import axios from "axios"
+import { BASE_URL } from "../Constatnts/urls"
+import useUnprotectedPage from "../hooks/useUnprotectedPage"
+
+
+// import { findByLabelText } from "@testing-library/react"
+
 
 const ScreenContainer = styled.div`
 display:flex;
@@ -41,8 +48,31 @@ const LoginPage = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        console.log(form)
+        login(form, clear, history)
     }
     
+
+    const login = (body, clear, history) => {
+        axios.post(`${BASE_URL}/users/login`, form)
+
+        .then((res) => {
+            localStorage.setItem("token", res.data.token)
+            clear()
+            goToFeedPage(history)
+            alert("deu Bom !!!")
+        })
+
+        .catch((err) =>
+         alert("Erro no Login !!!"))
+        
+        
+
+
+
+    }
+
+    useUnprotectedPage()
     return (
         <ScreenContainer>
             <h1>Login Page</h1>
@@ -58,6 +88,7 @@ const LoginPage = () => {
                         margin={"normal"}
                         required
                         type={"email"}
+                        
                     />
                     <TextField
                         name={"password"}
