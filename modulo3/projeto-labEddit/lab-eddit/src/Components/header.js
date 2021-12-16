@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import { goToLogin, goToRegisterPage } from '../Components/coordinator'
+import { goToLogin, goToFeedPage } from '../Components/coordinator'
 import { useHistory } from 'react-router-dom';
 
 
@@ -22,7 +22,7 @@ const Header = () => {
       <AppBar position="static">
         <StyledToolbar>
           
-          <Button onClick={() => goToRegisterPage(history)} color="inherit">Lab-Edit</Button>
+          <Button onClick={() => goToFeedPage(history)} color="inherit">Lab-Edit</Button>
           <Button onClick={() => goToLogin(history)} color="inherit">Login</Button>
         </StyledToolbar>
       </AppBar>
