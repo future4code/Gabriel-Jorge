@@ -41,7 +41,7 @@ margin-top: 20px ;
 
 
 
-const LoginPage = () => {
+const LoginPage = ({setRigthButton}) => {
     const [form, onChange, clear] = useForm({ email: "", password: "" })
 
     const history = useHistory()
@@ -49,22 +49,23 @@ const LoginPage = () => {
     const onSubmitForm = (event) => {
         event.preventDefault()
         console.log(form)
-        login(form, clear, history)
+        login(form, clear, history, setRigthButton)
     }
     
 
-    const login = (body, clear, history) => {
+    const login = (body, clear, history, setRigthButton) => {
         axios.post(`${BASE_URL}/users/login`, form)
 
         .then((res) => {
             localStorage.setItem("token", res.data.token)
             clear()
             goToFeedPage(history)
+            setRigthButton("Logout")
             alert("deu Bom !!!")
         })
 
         .catch((err) =>
-         alert("Erro no Login !!!"))
+         alert(err.response.data.message))
         
         
 

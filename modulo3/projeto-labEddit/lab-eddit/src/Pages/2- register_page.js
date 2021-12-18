@@ -33,27 +33,28 @@ margin-top: 20vh;
 
 
 
-const RegisterPageForm = () => {
+const RegisterPageForm = ({setRigthButton}) => {
     const history = useHistory()
 
     const [form, onChange, clear] = useForm({username:'', email: '', password: '' })    
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        register(form, history, clear)
+        register(form, history, clear, setRigthButton)
     }
 
-    const register = (body, history, clear) => {
+    const register = (body, history, clear, setRigthButton) => {
         axios.post(`${BASE_URL}/users/signup`, body)
 
         .then((res) => {
             localStorage.setItem("token", res.data.token)
             clear()
             goToFeedPage(history)
-            /* alert("Cadastro Realizado com Sucesso !!!") */
+            setRigthButton("Logout")
+            alert("Cadastro Realizado com Sucesso !!!")
         })
 
-        .catch((err) => alert("Erro no Cadastro !"))
+        .catch((err) => alert(err.response.data.message))
     }
 
     useUnprotectedPage()

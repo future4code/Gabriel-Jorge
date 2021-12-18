@@ -1,4 +1,5 @@
 import react from 'react';
+import { useState } from 'react';
 import LoginPage from './Pages/1- login_page';
 import RegisterPage from './Pages/2- register_page';
 import FeedPage from './Pages/3- feed_page';
@@ -19,18 +20,30 @@ color:white;
 
 
 function App() {
+  const token = localStorage.getItem("token")
+  const [rigthButton, setRigthButton] = useState(token ? "Logout" : "Login")
+
+
+
   return (
     <ThemeProvider theme={theme}>
         <BrowserRouter>
-        <Header/>
+        <Header 
+        rigthButton={rigthButton}
+        setRigthButton={setRigthButton}
+        />
             <Switch>
 
                 <Route exact path={"/"}> 
-                  <LoginPage/>
+                  <LoginPage
+                  setRigthButton={setRigthButton}
+                  />
                 </Route>
 
                 <Route exact path={"/registerPage"}>
-                  <RegisterPage/>
+                  <RegisterPage
+                  setRigthButton={setRigthButton}
+                  />
                 </Route>
 
                 <Route exact path={"/feedPage"}>
