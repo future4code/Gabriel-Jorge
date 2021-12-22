@@ -7,7 +7,14 @@ import { BASE_URL } from '../Constatnts/urls'
 import FeedCard from "../Components/feedCard"
 
 
-
+const FeedContainer = styled.div`
+min-height: 100vh;
+width:100%;
+display :flex ;
+flex-direction:column;
+justify-content: space-between;
+align-items: center;
+`
 
 const FeedPage = () => {
     useProtectedPage()
@@ -20,17 +27,18 @@ const feedCards = feed.map((recipe) => {
             key={recipe.id}
             title={recipe.title}
             name={recipe.username}
-            body={recipe.body}            
+            body={recipe.body}  
+            time={recipe.createdAt}          
         />
     )
 })
 
     
     return(
-        <div>
+        <FeedContainer>
             <h1>Feed Page ok</h1>
            {feedCards}
-        </div>
+        </FeedContainer>
     )
 
 }

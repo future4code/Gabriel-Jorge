@@ -1,63 +1,47 @@
 import React from "react";
-import { CardActionArea } from "@material-ui/core";
-// import { CardMedia } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 
-
-// const RecipeListContainer = styled.div`
-// display: flex;
-// flex-direction: row;
-// flex-wrap: wrap;
-// margin: 30px;
-// `
-
-// const AddRecipeButton = styled(Fab)`
-// position: fixed !important;
-// rigth: 20px;
-// bottom: 20px;
-// z-index: 3;
-// `
-
-
-
 const FeedCardContainer = styled.div`
-border:1px solid black;
+    min-height: 200px;
+    width: 300px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items: center;
+    border:1px solid white;
 `
-const FeedCardContent = styled.div`
 
+
+const CardNameContainer = styled.section`
+    height: 20%;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
 
 `
-const ContainerNovo = styled.div`
-display:flex;
-flex-direction:column;
-align-items: center;
-
-
-text-align: center;
-color: red;
-max-width:250px
+const CardDetailsContainer = styled.section`
+    height: 80%;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 `
 
 const FeedCard = (props) => {
 
     return (
         <FeedCardContainer onClick={props.onClick}>
-            <CardActionArea>
-                {/* <CardMedia>
-                alt={props.ti}
-                title={props.title}
-                </CardMedia> */}
-                <FeedCardContent>
-                <ContainerNovo>
-                    <Typography /*align={'center'}*/>
-                        {props.title.toUpperCase()}                                             
-                    </Typography>       
-                        {props.body}                            
-                        </ContainerNovo>
-                </FeedCardContent>
-            </CardActionArea>
+            <CardNameContainer>
+                {props.name}
+            </CardNameContainer>
+            <CardDetailsContainer>         
+                {props.body}
+            </CardDetailsContainer> 
         </FeedCardContainer>
     )
 
