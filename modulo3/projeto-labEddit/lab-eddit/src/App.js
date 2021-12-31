@@ -50,7 +50,7 @@ function App() {
                   <FeedPage/>
                 </Route>
 
-                <Route exact path={"/postPage"}>
+                <Route exact path={"/postPage/:id"}>
                   <PostPage/>
                 </Route>
 

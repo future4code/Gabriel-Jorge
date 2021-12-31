@@ -17,9 +17,14 @@ const ScreenContainer = styled.div`
 display:flex;
 flex-direction: column;
 align-items: center;
-width:100vw
+width:100vw;
 /* margin-top:20vh */ ---------------------------------ajustar espaçamento
 
+.title{
+    /* background-color: blue
+    margin: 50px; */
+    font-size: 220px
+}
 `
 
 const ImputsContainer = styled.div`
@@ -76,7 +81,7 @@ const LoginPage = ({setRigthButton}) => {
     useUnprotectedPage()
     return (
         <ScreenContainer>
-            <h1>Login Page</h1>
+            <h1 className='title'>Login</h1>
             <ImputsContainer>
                 <form onSubmit={onSubmitForm}>
                     <TextField
