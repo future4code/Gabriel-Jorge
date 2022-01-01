@@ -17,7 +17,7 @@ const FeedCardContainer = styled.div`
     border-radius: 20px 20px 0px 0px;
     
 .CardName{   
-    border: 2px solid rgba(225, 148, 35, 1) ;
+    border: 2px solid rgba(165,53,12, 0.7) ;
     border-radius: 20px ;
     height: 20%;
     width: 100%;
@@ -52,6 +52,33 @@ const FeedCardContainer = styled.div`
     /* background-color: yellow; */ 
     
 }
+.button{
+background: rgba(165,53,12, 0.7);
+padding:20px 205px;
+border-radius: 20px;
+font-size:30px;
+}
+
+.button2{
+    background: rgba(165,53,12, 0.7); 
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size:20px;
+}
+
+.buttonPost{
+    margin: 20px;
+    
+}
+
+.textBody{
+    background: rgba(165,53,12, 0.7);
+    border-radius: 20px 0px 20px 0px;
+    padding: 20px;
+    margin: 20px;
+    font-size:20px;
+    box-shadow: 0px px 4px 4px green;
+}
 `
 
 
@@ -73,6 +100,7 @@ const FeedCard = (props) => {
 
 
     return (
+        <div>
         <FeedCardContainer onClick={props.onClick}>
             <div className="texte">
         <div className='CardName'>
@@ -81,26 +109,31 @@ const FeedCard = (props) => {
             
         </div>
         <div className='CardDetails'>
-                    
+            <div className='textBody'>      
                 {props.body}
-            
+            </div>
         </div>
-             <button onClick={() =>goToPostPage(history, props.id)}>Ver Post</button>
+
+        <div className='buttonPost'>
+             <button className='button' onClick={() =>goToPostPage(history, props.id)}><ion-icon name="chatbubble-ellipses-outline"></ion-icon></button>
+        </div>
+        
         <div className='CardInteract'>   
             
                 {
-                    props.userVote ? <button onClick={() => {removeVote(props.id)}}> Del</button> : <button onClick={() => {upVote(props.id)}}>Post</button> 
+                    props.userVote ? <button className='button2' onClick={() => {removeVote(props.id)}}> <ion-icon name="thumbs-up"></ion-icon> Del </button> : <button className='button2' onClick={() => {upVote(props.id)}}><ion-icon name="thumbs-up-outline"></ion-icon></button> 
                 }
                 
                 {props.voteSum}
                 
                 {
-                    props.userVote ? <button onClick={() => {removeVote(props.id)}}> Del </button> : <button onClick={() => {downVote(props.id)}}>Put</button> 
+                    props.userVote ? <button className='button2' onClick={() => {removeVote(props.id)}}><ion-icon name="thumbs-down"></ion-icon> Del </button> : <button className='button2' onClick={() => {downVote(props.id)}}><ion-icon name="thumbs-down-outline"></ion-icon></button> 
                 }
                 
         </div>
         </div>
         </FeedCardContainer>
+        </div>
     )
 
 

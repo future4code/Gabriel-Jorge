@@ -5,6 +5,79 @@ import { useState, useEffect } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { getFeed, getComments } from "../API/apirequest"
 import { downVoteComment, removeVoteComment, upVoteComment } from "../API/apicomment"
+import CommentCard from "../Components/commentCard"
+
+
+const PostContainer = styled.div`
+/* background-color:red ; */
+
+.title{
+    display:flex ;
+    align-items: center;
+    margin:  30px 0px 30px 100px;
+    font-size: 20px;
+}
+
+.bodyPost{
+    background: rgba(225, 148, 35, 0.3);
+    margin: 30px;
+    padding: 30px;
+    max-width: 500px;   
+    border: 3px solid green;
+    border-radius: 20px;
+    box-shadow: 10px 10px purple;
+    font-size: 30px;
+ }
+.commentPost{
+    background: rgba(0,130,0, 0.2);
+    margin: 30px;
+    padding: 0px 30px 30px 30px ;
+    max-width: 500px;   
+    border: 3px solid green;
+    border-radius: 20px;
+    box-shadow: 10px 10px purple;
+    font-size: 20px;
+}
+.titleH2{
+    margin: 20px 0px 20px 0px;
+    background-color: purple ;
+    max-width:165px;
+    padding: 10px;
+    border-radius: 20px 0px 20px 0px;
+    border: 3px solid green;
+    
+}
+`
+const PostCommentsContainer = styled.div`
+margin: 20px;
+
+.userName{
+    text-shadow: 2px 2px green;
+    background: purple;
+    max-width: 200px;
+    padding: 5px 0px 10px 10px ;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid green;
+}
+.CardCommentInteract{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top:70px;
+    
+}
+.button{
+    background: rgba(165,53,12, 0.7); 
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size:20px;
+
+
+}
+`
+
+
 
 
 const PostPage = () => {
@@ -29,52 +102,58 @@ const PostPage = () => {
         return details.id === params.id}).map((details) => {
             return (
                 <div key={details.id}>
-                    <p>{details.title}</p>
+                    <p>{details.username.toUpperCase()}</p>
+                    {/* <p>{details.title}</p> */}
                     <p>{details.body}</p>
-                    <p>{details.username}</p>
+                    
                 </div>
             )
         }) 
     
     const actualPostComments = postComments.map((comments) => {
         return(
-            <div>
-                <p>{comments.username}</p>
+            <PostCommentsContainer>
+                <div className="userName">
+                    <p>{comments.username.toUpperCase()}</p>
+                </div>
                 <p>{comments.body}</p>
-                {comments.voteSum ? <p>{comments.voteSum}</p> : <p>0</p>} 
+                 
 
+                <div className="CardCommentInteract">
                 {
-                    comments.userVote ? <button onClick={() => {removeVoteComment(comments.id)}}> Del</button> : <button onClick={() => {upVoteComment(comments.id)}}>Post</button> 
+                    comments.userVote ? <button className='button' onClick={() => {removeVoteComment(comments.id)}}><ion-icon name="thumbs-up"></ion-icon></button> : <button className='button' onClick={() => {upVoteComment(comments.id)}}><ion-icon name="thumbs-up-outline"></ion-icon></button> 
                 }
                 
-                {comments.voteSum}
+                {comments.voteSum ? <p>{comments.voteSum}</p> : <p>0</p>}
                 
                 {
-                    comments.userVote ? <button onClick={() => {removeVoteComment(comments.id)}}> Del </button> : <button onClick={() => {downVoteComment(comments.id)}}>Put</button> 
+                    comments.userVote ? <button className='button' onClick={() => {removeVoteComment(comments.id)}}><ion-icon name="thumbs-down"></ion-icon></button> : <button className='button' onClick={() => {downVoteComment(comments.id)}}> <ion-icon name="thumbs-down-outline"></ion-icon></button> 
                 }
+                
+                </div>
 
-
-            </div>
+            </PostCommentsContainer>
         )
     })
 
 
-    // "id": "b42bb516-09c4-45f7-b378-f4b80bb8b4cd",
-    // "body": "Primeiro comentário",
-    // "createdAt": "2021-05-28T12:59:24.633Z",
-    // "userId": "a45f6d7f-be44-497e-94ee-759673ca5d16",
-    // "postId": "6503d483-68ee-4b96-b399-44cbb5e2041b",
-    // "voteSum": null,
-    // "userVote": null
-
+    
 
     return(
-        <div>
-            <h1>Post Page ok</h1>
+        <PostContainer>
+            <div className="title">
+                <h1>Post</h1>
+            </div>
+            <div className="bodyPost">
             {actualPost}
-            <br></br>
+            </div>
+            <div className="commentPost">
+                <h2 className="titleH2">Comentarios</h2>
             {actualPostComments}
-        </div>
+            </div>            
+            {CommentCard()}
+        </PostContainer>
+            
     )
 
 }
