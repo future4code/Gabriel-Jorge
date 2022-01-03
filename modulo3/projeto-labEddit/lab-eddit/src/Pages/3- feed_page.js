@@ -7,10 +7,9 @@ import { BASE_URL } from '../Constatnts/urls'
 import FeedCard from "../Components/feedCard"
 import { useEffect, useState } from "react"
 import { getFeed } from "../API/apirequest"
-
+import AddPost from "../Components/add_Post"
 
 const FeedContainer = styled.div`
-
 min-height: 100vh;
 width:100%;
 
@@ -19,6 +18,7 @@ width:100%;
 .PageTitle{
 h1{
     color: white;
+    
 
 }
 }
@@ -34,8 +34,12 @@ h1{
 
 .title{
     text-align:center;
-    margin: 50px;
-    font-size: 60px
+    margin: 0px 0px 30px 0px;
+    font-size: 60px;
+    
+}
+.title:hover{
+    background: rgba(0,97,97, 0.2);    
 }
 `
 
@@ -83,6 +87,7 @@ const feedCards = postList.map((recipe) => {
     
     return(
         <FeedContainer>
+            <AddPost/>
             <div className='PageTitle'>
                 <h1 className='title'>Feed</h1>
             </div>

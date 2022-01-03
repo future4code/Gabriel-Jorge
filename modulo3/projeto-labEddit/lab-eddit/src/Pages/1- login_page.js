@@ -25,6 +25,14 @@ width:100vw;
     margin: 50px; */
     font-size: 220px
 }
+.titleConteiner{
+    
+}
+.title:hover{
+    padding:20px;
+    margin:40px;
+    background: blue;
+}
 `
 
 const ImputsContainer = styled.div`
@@ -81,7 +89,9 @@ const LoginPage = ({setRigthButton}) => {
     useUnprotectedPage()
     return (
         <ScreenContainer>
-            <h1 className='title'>Login</h1>
+            <div className="titleConteiner">
+                <h1 className='title'>Login</h1>
+            </div>
             <ImputsContainer>
                 <form onSubmit={onSubmitForm}>
                     <TextField

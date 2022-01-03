@@ -3,6 +3,8 @@ margin: 0;
 padding: 0;
 /* width: 100%;
 min-height: 100vh; */
+
+
 }
 
 body{
@@ -11,7 +13,7 @@ background-image: url("https://c.wallhere.com/photos/54/ee/black_background_patt
 background-repeat: no-repeat;
 background-size: cover;
 
-display: flex;
+/* display: flex; */
 flex-direction: column;
 padding-bottom: 200px;
 /* text-align: center; */
