@@ -16,7 +16,6 @@ flex-direction: column;
 align-items: center;
 width:100vw
 /* margin-top:20vh */ ---------------------------------ajustar espaçamento
-
 `
 
 const ImputsContainer = styled.div`
