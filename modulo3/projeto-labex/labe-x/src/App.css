@@ -1,0 +1,17 @@
+*{
+margin: 0;
+padding: 0;
+
+}
+
+body{
+background-image: url("https://sm.ign.com/ign_br/screenshot/default/agos_ye78.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+flex-direction: column;
+/* background-color: purple; */
+background-color: rgba(128, 160, 132, 0.568);
+align-items: center;
+min-height: 100vh;
+}
