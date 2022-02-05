@@ -1,8 +1,8 @@
-#Ex-1-a) Explique o que é uma chave estrangeira.
+**Ex-1-a)** Explique o que é uma chave estrangeira.
 Ela integra uma tabela a outra.
 
 
-#Ex-1-b) Crie a tabela e, ao menos, uma avaliação para cada um dos filmes
+**Ex-1-b)** Crie a tabela e, ao menos, uma avaliação para cada um dos filmes
 
 CREATE TABLE Rating (
 	id VARCHAR(255) PRIMARY KEY,
@@ -16,24 +16,23 @@ INSERT INTO Rating VALUES
 ('dgd','um dos melhores','4.5','004'),
 ('sdf','nunca ouvi falar','4.5','002');
 
-#Ex-1-c) Tente criar uma avaliação para um filme que não existe (ou seja, um id inválido). Anote e explique o resultado da query.
+**Ex-1-c)** Tente criar uma avaliação para um filme que não existe (ou seja, um id inválido). Anote e explique o resultado da query.
 Dá erro pq o sistema não acha o filme no qual associar.
 
-#Ex-1-d)
-d) Altere a tabela de filmes para que ela não tenha mais uma coluna chamada rating.
+**Ex-1-d)** Altere a tabela de filmes para que ela não tenha mais uma coluna chamada rating.
 
 ALTER TABLE Movies DROP COLUMN rating;
 
-#Ex-1-e) Tente apagar um filme que possua avaliações. Anote e explique o resultado da query.
+**Ex-1-e)** Tente apagar um filme que possua avaliações. Anote e explique o resultado da query.
 
 DELETE FROM Movies WHERE id = 002;
 
 Não é possível excluir ou atualizar uma linha pai: uma restrição de chave estrangeira falha.
 
-#Ex-2-a) Explique, com as suas palavras, essa tabela
+**Ex-2-a)** Explique, com as suas palavras, essa tabela
 É uma tabela que integra o elenco do filme com os filmes.
 
-#Ex-2-b) Crie, ao menos, 6 relações nessa tabela 
+**Ex-2-b)** Crie, ao menos, 6 relações nessa tabela 
 
 INSERT INTO Movies VALUES 
 ('001','Homem de Ferro','Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora.','2008-04-30'),
@@ -67,9 +66,17 @@ INSERT INTO MovieCast VALUES
 ('009','001'),
 ('009','003');
 
-#Ex-2-c) Tente criar uma relação com um filme ou um ator inexistente. Anote e explique o resultado da query
+#**Ex-2-c)** Tente criar uma relação com um filme ou um ator inexistente. Anote e explique o resultado da query
 Não é possivel achara chave estrangeira, dae o mySQL dá erro.
 
 #Ex-2-d) Tente apagar um ator que possua uma relação nessa tabela. Anote e explique o resultado da query.
 Não é possível excluir ou atualizar uma linha pai: uma restrição de chave estrangeira falha.
 
+**Ex-3-a)** Explique, com suas palavras, a query acima. O que é o operador ON?
+Ele integra uma tabela a partir dos dados iguais da outra...
+
+**Ex-3-b)**
+
+SELECT Movies.id, Movies.name, Rating.comment 
+FROM Movies
+INNER JOIN Rating ON Movies.id = Rating.movies_id;
