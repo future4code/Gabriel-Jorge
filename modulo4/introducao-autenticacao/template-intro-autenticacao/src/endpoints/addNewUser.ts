@@ -12,9 +12,9 @@ export const createNewUser =  async (req: Request, res: Response): Promise<void>
        
        await connection.raw(`INSERT INTO User_21_02  (id, email, password)
        VALUES
-       (${id},
-       ${email},
-       ${password});`)
+       ('${id}',
+       '${email}',
+       '${password}');`)
  
        res.status(201).send("Usuario adicionado com sucesso")
     }catch{

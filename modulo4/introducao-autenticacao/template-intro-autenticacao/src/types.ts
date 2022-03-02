@@ -17,3 +17,7 @@ export class User {
        this.password = password
    }
 }
+
+export interface autenticatorData{
+   id: string
+}

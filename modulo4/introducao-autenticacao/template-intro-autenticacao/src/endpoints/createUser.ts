@@ -22,7 +22,7 @@ export default async function createUser(req: Request, res: Response): Promise<v
 
       const id: string = idGenerator()
 
-      const newUser: user = { id, name, nickname, email, password }
+      const newUser: user = { id, name, nickname, email, password } 
 
       await connection('to_do_list_users')
          .insert(newUser)
