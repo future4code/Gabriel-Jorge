@@ -1,13 +1,17 @@
 import { app } from "./controller/app"
-import { signup } from './endpoints/signup'
-import { createTask } from './endpoints/createTask'
-import { getTaskById } from './endpoints/getTaskById'
-import { login } from './endpoints/login'
+import { UserControler } from "./controller/UserControler"
+// import { signup } from './endpoints/signup'
+// import { createTask } from './endpoints/createTask'
+// import { getTaskById } from './endpoints/getTaskById'
+// import { login } from './endpoints/login'
 
-app.post('/user/signup', signup)
-app.post('/user/login', login)
+const userControler = new UserControler()
 
-app.put('/task', createTask)
-app.get('/task/:id', getTaskById)
+
+// app.post('/user/signup', signup)
+app.post('/user/login', userControler.login)
+
+// app.put('/task', createTask)
+// app.get('/task/:id', getTaskById)
 
 console.log("tudo 2...")

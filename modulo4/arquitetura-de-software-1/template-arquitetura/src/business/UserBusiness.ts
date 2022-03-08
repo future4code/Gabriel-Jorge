@@ -34,7 +34,7 @@ export class UserBusiness{
          id: user.id,
          role: user.role
       })
-        
+        return token
     }
 
 
