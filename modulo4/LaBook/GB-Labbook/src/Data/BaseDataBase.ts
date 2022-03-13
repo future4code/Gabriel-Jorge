@@ -1,4 +1,4 @@
-import knex ,{ Knex } from "knex";
+import knex, { Knex } from "knex";
 
 export class BaseDataBase {
 
@@ -14,4 +14,6 @@ export class BaseDataBase {
     });
 }
 
-// Para Usar BaseDataBase use: BaseDataBase.conection()
+
+// OBS:
+// Para Usar BaseDataBase use: BaseDataBase.conection() 
