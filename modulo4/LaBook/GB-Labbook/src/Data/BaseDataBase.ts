@@ -1,4 +1,8 @@
 import knex, { Knex } from "knex";
+import dotenv from 'dotenv'
+
+
+dotenv.config()
 
 export class BaseDataBase {
 
@@ -16,4 +20,4 @@ export class BaseDataBase {
 
 
 // OBS:
-// Para Usar BaseDataBase use: BaseDataBase.conection() 
+// Para Usar BaseDataBase use: BaseDataBase.connection() 

@@ -3,9 +3,7 @@ import { authenticationData } from "../Model/User"
 
 export class Authenticator{
 
-    generateToken(
-        payload: authenticationData
-        ): string {
+    generateToken ( payload: authenticationData ):string {
         return jwt.sign(
            payload,
            process.env.JWT_KEY as string,
@@ -15,17 +13,14 @@ export class Authenticator{
         )
      }
 
-     getTokenData(
-        token: string
-        ): authenticationData {
+     getTokenData( token: string ):authenticationData {
         const result: any = jwt.verify(
            token,
            process.env.JWT_KEY as string
         )
      
-        return { id: result.id, }
+        return { id: result.id }
      }
 }
 
 // export const authenticator = new Authenticator()
-

@@ -1,5 +1,4 @@
-import express, { Express } from "express";
-import knex, { Knex } from "knex";
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
@@ -7,7 +6,7 @@ import { AddressInfo } from "net";
 dotenv.config();
 
 
-export const app: Express = express();
+export const app = express();
 
 app.use(express.json());
 app.use(cors());
@@ -18,6 +17,6 @@ app.use(cors());
             console.log(`Servidor Rodando em http://localhost:
             ${address.port}`);
         } else {
-            console.error(`Failure upon starting server.`);
+            console.error(`Falha no Servidor...`);
         }
 });
