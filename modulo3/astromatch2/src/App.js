@@ -8,11 +8,11 @@ import './style.css'
 import Header from "./components/header";
 
  const DivGlobal = styled.div`
-background-color: #3299a8 ;
-color: black;
-margin: auto;
-width: 50%;
-border-radius: 10%;
+  background-color: #3299a8 ;
+  color: black;
+  margin: auto;
+  width: 50%;
+  border-radius: 10%;
 `
 
 
@@ -37,7 +37,7 @@ const App = () => {
         return <TelaInicial
         vaiPaginaMatch={vaiPaginaMatch}
         vaiPaginaInicial={vaiPaginaInicial}
-        vaiPaginaMusicas={vaiPaginaMusicas}
+        // vaiPaginaMusicas={vaiPaginaMusicas}
         userPhoto={userPhoto}
         userName={userName}
         userAge={userAge}
@@ -52,7 +52,7 @@ const App = () => {
         return <TelaMatch
         vaiPaginaMatch={vaiPaginaMatch}
         vaiPaginaInicial={vaiPaginaInicial}
-        vaiPaginaMusicas={vaiPaginaMusicas} 
+        // vaiPaginaMusicas={vaiPaginaMusicas} 
         limpar={limpar}  
         matchesList={matchesList}
         />
@@ -61,7 +61,7 @@ const App = () => {
         return <TelaMusica 
         vaiPaginaMatch={vaiPaginaMatch}
         vaiPaginaInicial={vaiPaginaInicial}
-        vaiPaginaMusicas={vaiPaginaMusicas}
+        // vaiPaginaMusicas={vaiPaginaMusicas}
         
         />
 
@@ -70,29 +70,19 @@ const App = () => {
     }
   }
 
-  // const trocaTela = () => {
-  //   if (telaAtual === "apreTelaInicial"){
-  //     setTelaAtual("apreTelaMatch")
-  //   } else{
-  //     setTelaAtual("apreTelaInicial")
-  //   }
-  
-  // }
+  const vaiPaginaMatch = () => {
+    setTelaAtual("apreTelaMatch")
+    getMatchs()
+  }
 
-const vaiPaginaMatch = () => {
-  setTelaAtual("apreTelaMatch")
-  getMatchs()
-}
+  const vaiPaginaInicial = () => {
+    setTelaAtual("apreTelaInicial")
+    getPerfilUsuario()
+  }
 
-const vaiPaginaInicial = () => {
-  setTelaAtual("apreTelaInicial")
-  getPerfilUsuario()
-}
-
-const vaiPaginaMusicas = () => {
-  setTelaAtual("apreTelaMusica")
-// console.log("qualquer coisa")
-}
+  const vaiPaginaMusicas = () => {
+    setTelaAtual("apreTelaMusica")
+  }
 
 
 
@@ -180,19 +170,6 @@ const limpar = () => {
       alert("Mano, deu Rum !!!")
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (
