@@ -11,17 +11,8 @@ img{
     object-fit: cover;
     object-position: center;
     padding: 5px
-
-}
-
-
+    }
 `
-
-
-
-
-
-
 
 
 const TelaMatch = (props) => {
@@ -31,26 +22,19 @@ return (
                 <img src={`${pessoa.photo}`}/>
                 <p>{pessoa.name}</p>
             </div>
-
-)
-
+        )
 })
 
-
-
-return( 
-    <div>
-        <StyledTelaMatch>
-        {renderMatches}
-        </StyledTelaMatch>
-        <h3>Tela Match Ok</h3>
-        <button onClick={props.vaiPaginaInicial}>TelaInicial</button>
-        <button onClick={props.limpar}>Limpar Tela</button>
-    </div>
-
-
-
-)
+    return( 
+        <div>
+            <StyledTelaMatch>
+            {renderMatches}
+            </StyledTelaMatch>
+            <h3>Tela Match Ok</h3>
+            <button onClick={props.vaiPaginaInicial}>TelaInicial</button>
+            <button onClick={props.limpar}>Limpar Tela</button>
+        </div>
+        )
 }
 
 export default TelaMatch

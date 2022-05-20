@@ -1,20 +1,13 @@
 import React from 'react'
 
-
 const TelaMusica = (props) => {
 
-
-
-
-return( 
-    <div>
+    return( 
+        <div>
         <h3>Tela Musicas Ok</h3>
         <button onClick={props.vaiPaginaInicial}>TelaInicial</button>
-    </div>
-
-
-
-)
+        </div>
+    )
 }
 
 export default TelaMusica
